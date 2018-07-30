@@ -6,6 +6,7 @@
 ************************************/
 const logger = function (array) {
   // Your code here
+  array.forEach(x => console.log(x));
 };
 
 
@@ -20,9 +21,15 @@ const logger = function (array) {
 * The conversion is:
 *   C = (F - 32) * (5/9)
 ************************************/
-const toCelsius = function (temperatures) {
-  // Your code here
+const toCelsius = function (temperatures){
+let temps = temperatures.map(temp => {
+    return ((temp-32)*(5/9))
+  });
+  return temps;
+
+
 }
+
 
 
 /**************************************
@@ -35,6 +42,9 @@ const toCelsius = function (temperatures) {
 ***************************************/
 const hottestDays = function (temperatures, threshold) {
   // Your code here
+let c= temperatures.filter(temperature => temperature > threshold);
+return c;
+
 }
 
 
@@ -54,7 +64,10 @@ const hottestDays = function (temperatures, threshold) {
 *******************************************/
 const logHottestDays = function (temperatures, threshold) {
   // Your code here
-}
 
+  let variable = hottestDays(temperatures, threshold);
+  let c= toCelsius(variable);
+  logger(c);
+}
 
 export { logger, toCelsius, hottestDays, logHottestDays }
